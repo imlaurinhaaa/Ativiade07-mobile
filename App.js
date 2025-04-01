@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react"; 
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import Shop from "./pages/Shop"
+import Perfil from "./pages/Perfil"
+
+const Drawer = createDrawerNavigator();
+
+export default function DrawerNavigator() {
+    return (
+      <NavigationContainer>
+        <Drawer.Navigator initialRouteName="Shop">
+            <Drawer.Screen name="Shop" component={Shop} />
+            <Drawer.Screen name="Perfil" component={Perfil} />
+        </Drawer.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
